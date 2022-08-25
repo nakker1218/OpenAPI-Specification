@@ -36,8 +36,12 @@ jobs:
           cd /home/runner/work/_temp/client
           ls -l
           cp -r . /home/runner/work/OpenAPI-Specification/OpenAPI-Specification
-          cd /home/runner/work/OpenAPI-Specification/OpenAPI-Specification          
-          echo "cd /home/runner/work/OpenAPI-Specification/OpenAPI-Specification"
+          cd /home/runner/work/OpenAPI-Specification/OpenAPI-Specification
+      - name: Run build_runner
+        run: |
+          cd /home/runner/work/OpenAPI-Specification/OpenAPI-Specification
+          flutter pub get
+          flutter packages pub run build_runner build --delete-conflicting-outputs
       - name: Diff
         id: diff
         run: |
