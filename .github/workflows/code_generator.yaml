@@ -37,6 +37,14 @@ jobs:
           ls -l
           cp -r . /home/runner/work/OpenAPI-Specification/OpenAPI-Specification
           cd /home/runner/work/OpenAPI-Specification/OpenAPI-Specification
+      - name: Setup flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '2.5.0'
+          channel: 'stable'
+          cache: true
+          cache-key: flutter # optional, change this to force refresh cache
+          cache-path: ${{ runner.tool_cache }}/flutter
       - name: Run build_runner
         run: |
           cd /home/runner/work/OpenAPI-Specification/OpenAPI-Specification
