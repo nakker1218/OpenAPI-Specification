@@ -40,7 +40,7 @@ jobs:
       - name: Setup flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '2.5.0'
+          flutter-version: ${{ secrets.FLUTTER_VERSION }}
           channel: 'stable'
           cache: true
           cache-key: flutter # optional, change this to force refresh cache
