@@ -46,8 +46,8 @@ jobs:
         continue-on-error: true
       - name: Commit & Push
         run: |
-          git config --global user.email "nakker1218@gmail.com"
-          git config --global user.name "Shohei Nakayama"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
           git add .
           git commit -m "Update from $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/${{ github.sha }}"
           git push --set-upstream origin ${{ github.head_ref }}
