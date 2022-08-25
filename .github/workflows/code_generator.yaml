@@ -44,7 +44,7 @@ jobs:
           flutter-version: ${{ secrets.FLUTTER_VERSION }}
           channel: 'stable'
           cache: true
-          cache-key: flutter # optional, change this to force refresh cache
+          cache-key: flutter
           cache-path: ${{ runner.tool_cache }}/flutter
       - name: Run build_runner
         run: |
@@ -64,6 +64,7 @@ jobs:
           git add .
           git commit -m "Update from $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/${{ github.sha }}"
           git push --set-upstream origin ${{ github.head_ref }}
+          hub pull-request -b main -m "Release from $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/${{ github.sha }}"
         if: steps.diff.outcome == 'failure'
       - name: Create comment
         uses: mshick/add-pr-comment@v1
