@@ -64,7 +64,6 @@ jobs:
           git add .
           git commit -m "Update from $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/${{ github.sha }}"
           git push --set-upstream origin ${{ github.head_ref }}
-          hub pull-request -b main -m "Release from $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/${{ github.sha }}"
         if: steps.diff.outcome == 'failure'
       - name: Create comment
         uses: mshick/add-pr-comment@v1
